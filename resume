@@ -1,0 +1,404 @@
+\documentclass[10pt, letterpaper]{article}
+% Packages:
+\usepackage[
+        ignoreheadfoot, % set margins without considering header and footer
+        top=1.5 cm, % separation between body and page edge from the top
+        bottom=1 cm, % separation between body and page edge from the bottom
+        left=1.5 cm, % separation between body and page edge from the left
+        right=1.5 cm, % separation between body and page edge from the right
+        footskip=1.0 cm, % separation between body and footer
+        % showframe % for debugging 
+    ]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Katta Koushik Reddy's CV},
+    pdfauthor={Katta Koushik Reddy},
+    colorlinks=true,
+    urlcolor=blue % Change link color to blue
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{times} % for using Times New Roman font
+\usepackage{ifthen}
+
+% Some settings:
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+
+\titleformat{\section}{
+        % make the font size of the section title large and color it with the primary color
+        \Large\color{black}
+    }{
+    }{
+    }{
+        % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+        % from the end of the title to the end of the body
+        \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+    }[] % section title formatting
+
+\titlespacing{\section}{
+        % left space:
+        0pt
+    }{
+        % top space:
+        0.3 cm
+    }{
+        % bottom space:
+        0.2 cm
+    } % section title spacing
+
+\newcolumntype{L}[1]{
+    >{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}
+} % left-aligned fixed width column type
+\newcolumntype{R}[1]{
+    >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}
+} % right-aligned fixed width column type
+\newcolumntype{K}[1]{
+    >{\let\newline\\\arraybackslash\hspace{0pt}}X
+} % justified flexible width column type
+\setlength\tabcolsep{-1.5pt} % no space between columns
+\newenvironment{highlights}{
+        \begin{itemize}[
+                topsep=0pt,
+                parsep=0.1 cm,
+                partopsep=0pt,
+                itemsep=0pt,
+                after=\vspace{-1\baselineskip},
+                leftmargin=0.4 cm + 3pt
+            ]
+    }{
+        \end{itemize}
+    } % new environment for highlights
+
+\newenvironment{header}{
+        \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{black}\linespread{1.5}
+    }{
+        \par\kern\topsep
+    } % new environment for the header
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+ % new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\mbox{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}}
+
+\let\originalTabularx\tabularx
+\let\originalEndTabularx\endtabularx
+
+\renewenvironment{tabularx}{\bgroup\centering\originalTabularx}{\originalEndTabularx\par\egroup}
+
+% For TextEntrys (see https://tex.stackexchange.com/a/600/287984):
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1\topsep=0pt\itemsep=0pt\parsep=0pt\parskip=0pt}\item[]}
+\let\endchangemargin=\endlist 
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+\begin{document}
+   \begin{header}
+        \fontsize{30 pt}{30 pt}
+
+
+        \textbf{Katta Koushik Reddy}
+        \vspace{0.1 cm}
+        \normalsize
+        
+       % \mbox{\hrefWithoutArrow{https://maps.app.goo.gl/3QbEunyujS3nj2wn7}{\hspace*{0.13cm}Hyderabad,IN}}
+        \mbox{\hrefWithoutArrow{tel:+91 8639004645}{\hspace*{0.13cm}Ph: +91-8639004645}}
+        \mbox{\hrefWithoutArrow{mailto:kattakoushikreddy2003@gmail.com}{\hspace*{0.13cm}kattakoushikreddy2003@gmail.com }}
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/katta-koushik-reddy-153553232/?originalSubdomain=in}{\hspace*{0.13cm}LinkedIn}}
+        \mbox{\hrefWithoutArrow{https://github.com/kattakoushikreddy27}{\hspace*{0.13cm}GitHub}}
+ \mbox{\hrefWithoutArrow{https://koushikreddy27.in/}{\hspace*{0.13cm}Portfolio}}
+        \mbox{\hrefWithoutArrow{https://www.credly.com/users/katta-koushik-reddy.76a41ccf}{\hspace*{0.13cm}Credly}}
+    \end{header}
+    \section{Education}
+        \begin{tabularx}{
+            \textwidth-0.4 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{4.1 cm}
+        } 
+            \vspace{0.05 cm}
+     \textbf{Vellore Institute of Technology, Vellore} 
+
+        \text{ Bachelor of Technology (B.Tech),Computer Science and Engineering.}
+            \vspace{0.05 cm}
+
+            \begin{highlights}
+                \item \textbf{CGPA}: 8.58/10.0 
+                \item \textbf{Coursework:} Software Foundations, Algorithms, Artificial Intelligence,Data Science  Comparison of Learning Algorithms, Computational Theory, Operating Systems, DBMS.
+            \end{highlights}
+            &
+            May. 2021 - Present 
+        \end{tabularx}
+        \vspace{0.08 cm}
+        \begin{tabularx}{
+            \textwidth-0.4 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{4.1 cm}
+        }
+            \vspace{0.05 cm}
+            \textbf{Narayana junior college, Hyderabad} 
+
+            \begin{highlights}
+                \textit{TSBIE-GPA:} 97.4/100 (\href{https://drive.google.com/file/d/1HIYUZZJZcla27FI3IVPgLdPcuRoijWII/view?usp=sharing}{Certificate})
+            \end{highlights}
+            &
+            
+
+            March. 2021
+
+        
+        \end{tabularx}
+ 
+        \vspace{0.08 cm}
+        \begin{tabularx}{
+            \textwidth-0.4 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{4.1 cm}
+        }
+ 
+            \textbf{Dr.KKR's Gowtham Educational Institutions, Hyderabad} 
+
+            \begin{highlights}
+                \textit{BSET-GPA:} 8.8/10 (\href{https://drive.google.com/file/d/1TU_PihJfcOtVu5t3Z5zmkYkuuuSZ8qPQ/view?usp=sharing}{Certificate})
+            \end{highlights}
+            &
+            
+
+            March. 2019
+
+        
+        \end{tabularx}
+    
+   \section{Work Experience}
+        \begin{tabularx}{
+            \textwidth-1 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{0.1 cm}
+        }
+            
+            
+           
+            \textbf{IEEE-MTTS}, \textit{Student Chapter}. 
+ \vspace{0.13 cm}
+
+\textbf{Chair Person}
+
+            \vspace{0.10 cm}
+
+ \begin{highlights}
+                \item Implemented innovative event management strategies, resulting in a 25\% increase in workshop participation and a 30 \% rise in attendee satisfaction rates.
+                \item Effectively organized workshops, seminars, and guest lectures, overseeing logistics management and implementing innovative outreach strategies resulting in a 30\% increase in workshop attendance and a 25\% rise in participant engagement.
+            \end{highlights}
+            &
+        2024
+
+            
+        \end{tabularx}
+        \vspace{0.35 cm}
+        \begin{tabularx}{
+            \textwidth-1 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{0.1 cm}
+        }
+            \vspace{0.13 cm}
+        \textbf{Jaagurthi Team,} \textit{cultural culb}
+            
+\textbf{Design Head  }
+            \begin{highlights}
+                \item Collaborated with Strydotech to manage their Instagram platform, creating eye-catching posters and social media posts that resulted in a 20\% increase in follower engagement
+                \item Executed a 10-day campaign, overseeing the creation and publication of 10 daily Instagram posts, while also crafting engaging Instagram stories to enhance brand visibility and increase publicity, resulting in a 50\% increase in followers.
+            \end{highlights}
+            &
+            2024
+        \end{tabularx}
+               \vspace{0.03 cm}
+        \begin{tabularx}{
+            \textwidth-0.4 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{0.1 cm}
+        }
+        \end{tabularx}
+
+    \section{Projects}
+\begin{tabularx}{
+            \textwidth-1 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{0.8 cm}
+        }
+            \textbf{EMA: Emergency Medication Assistance }(\href{https://github.com/kattakoushikreddy27/EMA-emergency-medication-assistance}{Source code})
+            
+            \begin{highlights}
+                \item Developed a responsive web application using Python, Flask, and SQLite to provide essential medication information during emergencies.Solved the problem of quickly accessing accurate medication data without needing a login, improving response time during medical emergencies.
+                \item \textbf{Version 2 (upcoming)}  feature advanced functionalities, including a photo scan search feature to enhance usability and accuracy.
+                \item Used Python,HTML,CSS
+            \end{highlights}
+            \vspace{0.10 cm}
+            &
+            2024
+        \end{tabularx}
+ \vspace{0.2 cm}
+
+ \begin{tabularx}{
+            \textwidth-1 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{0.8 cm}
+        }
+            \textbf{T20 world cup cricket Data Analytics - Cricket Analysis }%(\href{https://github.com/kattakoushikreddy27/EMA-emergency-medication-assistance}{Source code})%
+            
+            \begin{highlights}
+                \item Enhanced Player Selection: Built a Power BI report to identify the top 11 players for a T20 cricket team using data from ESPNcricinfo, making the selection process more data-driven and effective. Optimized Team Strategy: The team’s chances of winning increased to 90\% by creating a dashboard that categorized players by roles, such as bowlers and openers. This made it easier for the team to select the best players for each position.And gave the team the opportunity to make wise decisions.
+                \item Used Python, Web scrapping, Pandas, Power BI
+            \end{highlights}
+            \vspace{0.10 cm}
+            &
+            2024
+        \end{tabularx}
+ \vspace{0.2 cm}
+ 
+\begin{tabularx}{
+            \textwidth-1 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{0.8 cm}
+        }
+            \textbf{SummaWise: AI-Powered Text Summarizer and QA Helper }(\href{https://github.com/kattakoushikreddy27/SummaWiser}{Source code})
+            
+            \begin{highlights}
+                \item Developed a text summarization and question answering tool capable of processing lengthy texts to generate concise summary points and providing accurate answers to user questions related to the text, resulting in a 50\% reduction in time spent on information retrieval tasks and a 35\% increase in user satisfaction with text comprehension and retrieval accuracy.
+                \item Used Python,NLTK
+            \end{highlights}
+            \vspace{0.10 cm}
+            &
+            2023
+        \end{tabularx}
+ \vspace{0.2 cm}
+        \begin{tabularx}{
+            \textwidth-1 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{0.1 cm}
+        }
+            \textbf{VELORA :Voice enabled logical  operating  and response  assistant For windows  operating  Systems }(\href{https://drive.google.com/file/d/1TU_PihJfcOtVu5t3Z5zmkYkuuuSZ8qPQ/view?usp=sharing}{Source code})
+(\href{https://drive.google.com/file/d/1rEJaVLr43YwozMjRkFIB9ulMVPcfI_3J/view?usp=sharing}{Documentation})
+            \vspace{0.10 cm}
+
+            \begin{highlights}
+                \item Spearheaded the integration of advanced features such as voice recognition, conversational abilities, malware detection, and file management, resulting in a 40\% increase in user productivity, a 30\% enhancement in convenience, and a 25\% improvement in system security, consolidating these functionalities into a unified, robust assistant.
+                \item Used Python,NLTK,Google Cloud Speech-to-Text API  and OpenAI GPT-3 APIs.
+            \end{highlights}
+            &
+            
+
+
+
+
+
+
+            2023
+        \end{tabularx}
+
+
+       
+        
+
+    
+  
+\section*{Skills}
+\begin{itemize}[leftmargin=*, itemsep=0.1em]
+
+    \item \textbf{Languages:} English (Fluent), Telugu (native), Hindi (intermediate), French (basic)
+    \item \textbf{Coding Skills:} Python, Java, C/C++\item \textbf{Data Analysis:} Python, SQL, Power BI, R, MATLAB
+    \item \textbf{Graphic Design:} Photoshop, Figma,Canva
+    \item \textbf{Full-stack Development:} MERN stack (MongoDB, Express, React, Node.js), HTML, CSS, JavaScript
+    \item \textbf{Artificial Intelligence and Machine Learning:} Python, TensorFlow, sci-kit-learn
+    \item \textbf{Cloud Architecture and Development:} AWS, Azure Cloud Platform
+   % \item \textbf{Soft Skills:} Business Acumen, Public Speaking, Leadership, Innovation, Team Work, Continuous Learning. %
+    \item \textbf{Self Learning Courses:} \begin{highlights}
+\href{https://www.credly.com/badges/f493e8ae-65d1-4ae7-a738-6b643ac11054}{Enterprise Design Thinking Practitioner by IBM},
+\href{https://www.credly.com/badges/7f5baa25-7e10-4fa6-8ec6-77c545ee6b80/linked_in_profile}{ Basic Principles of Design Issued by IBM},\href{https://learn.mongodb.com/c/miRHyBdLSJC-WQMpqIc6Pg}{ Introduction to MongoDB}.
+
+\end{itemize}
+    \end{highlights}
+            
+
+
+  \section{Certifications}
+        \begin{tabularx}{
+            \textwidth-0.4 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{4.1 cm}
+        }
+            \textbf{AWS Certified Cloud Practitioner From AWS}(\href{https://www.credly.com/badges/adfb16b1-aebb-4fc8-9213-ff61a77d65c7/public_url}
+                {Certificate})
+           % \vspace{0.10 cm}
+            &
+            Dec 2023
+
+            
+        \end{tabularx}
+        \begin{tabularx}{
+            \textwidth-0.4 cm-0.13cm
+        }{
+            K{0.2 cm}
+            R{4.1 cm}
+        }
+            \textbf{Azure Administrator Associate From Microsoft}(\href{https://learn.microsoft.com/en-us/users/kattakoushikreddy-7638/credentials/bbe2c925a71701f7}
+                {Certificate})
+           % \vspace{0.10 cm}
+            &
+            Nov 2023
+        \end{tabularx}
+        
+\section*{Research Papers}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Wearable Device for Personalized Healthcare Monitoring for Sleep Monitoring and Analysis} (\href{https://drive.google.com/file/d/1680Ityjh3n4bmFIfPc1KdE0prN0QSsDL/view?usp=sharing}
+                {Certificate})\hfill Aug 2024
+    \begin{itemize}
+        \item Guided by Prof. Dr Jayashree J , Prof Dr Vijayashree J
+    \end{itemize}
+\end{itemize}
+
+ \section{Additional Experience}
+        \vspace{0.2 cm}
+        \begingroup\leftskip=0.2 cm
+        \advance\csname @rightskip\endcsname 0.2 cm
+        \advance\rightskip 0.2 cm
+
+        \textbf{RIVIERA 2024 :} Led the publicity and management efforts as a coordinator for the Jaagurthi team, orchestrating the effective organization and execution of activities during the Annual Sports and Cultural Fest of VIT, Vellore, resulting in a 20\% increase in event attendance and positive feedback from participants and attendees. \par\endgroup
+        \begingroup\leftskip=0.2 cm
+        \advance\csname @rightskip\endcsname 0.2 cm
+        \advance\rightskip 0.2 cm
+
+        \textbf{RIVIERA 2023:} Volunteered as publicity and management team under Indian Category in the Riviera 2023 – Annual Sports and Cultural Fest of VIT, Vellore.. \par\endgroup
+
+\section*{Passport \& Address}
+\textbf{Passport} \\
+\textbf{ID:} V9232709 (Republic of India) \\
+\textbf{Expires On:} 27/03/2032 \\
+
+\textbf{Address:} \\
+Katta Koushik Reddy, \\
+S/o Katta Ravinder Reddy, \\
+6-74, Gandhi Chowk, \\
+Main Road, Luxettipet, Mancherial Dt., \\
+Telangana, India, 504215
+
+\end{document}
